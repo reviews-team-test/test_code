@@ -15,4 +15,3 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           team_reviewers: reiviews-test-team
-          reviewers: ckux
