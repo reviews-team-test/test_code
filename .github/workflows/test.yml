@@ -13,5 +13,5 @@ jobs:
       - name: Add Reviewers to Pull Request
         uses: ryaugusta/pr-add-reviewers-action@v1
         with:
-          token: ${{ github.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           team_reviewers: reiviews-test-team
