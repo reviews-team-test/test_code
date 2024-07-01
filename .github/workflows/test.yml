@@ -1,0 +1,15 @@
+on: 
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  use_api:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "hello world!!!"
+      - name: Add Reviewers to Pull Request
+        uses: ryaugusta/pr-add-reviewers-action@v1
+        with:
+          token: ${{ github.token }}
+          team_reviewers: reiviews-test-team
