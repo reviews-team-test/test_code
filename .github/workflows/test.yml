@@ -2,6 +2,8 @@ on:
   pull_request_target:
     types: [opened, synchronize, reopened]
 
+permissions: write-all
+
 jobs:
   use_api:
     runs-on: ubuntu-latest
