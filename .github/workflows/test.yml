@@ -14,4 +14,4 @@ jobs:
         uses: ryaugusta/pr-add-reviewers-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          team_reviewers: @reviews-team-test/reiviews-test-team
+          team_reviewers: reviews-team-test/reiviews-test-team
