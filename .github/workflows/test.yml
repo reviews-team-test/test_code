@@ -8,10 +8,11 @@ jobs:
   use_api:
     runs-on: ubuntu-latest
     steps:
+      - id: label-the-PR
+        uses: actions/labeler@v5
       - run: |
-          echo "hello world!!!"
-      - name: Add Reviewers to Pull Request
-        uses: ryaugusta/pr-add-reviewers-action@v1
-        with:
-          token: ${{ secrets.REVIEW_TOKEN }}
-          team_reviewers: reiviews-test-team
+          echo "all-labels is $all-labels"
+          echo "new-labels is $new-labels"
+        env:
+          all-labels: ${{ steps.label-the-PR.outputs.all-labels }}
+          new-labels: ${{ steps.label-the-PR.outputs.new-labels }}
