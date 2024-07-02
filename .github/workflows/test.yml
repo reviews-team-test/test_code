@@ -8,19 +8,7 @@ jobs:
   use_api:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4 # Uploads repository content to the runner
+      - name: Add labels
+        uses: KeisukeYamashita/attach-labels@v1
         with:
-          repository: "kubernetes/test-infra"
-          sparse-checkout: label_sync/labels.yaml
-          sparse-checkout-cone-mode: false
-      - run: |
-          mkdir .github
-          mv label_sync/labels.yaml .github/labeler.yml
-      - id: label-the-PR
-        uses: actions/labeler@v5
-      - run: |
-          echo "all-labels is $all-labels"
-          echo "new-labels is $new-labels"
-        env:
-          all-labels: ${{ steps.label-the-PR.outputs.all-labels }}
-          new-labels: ${{ steps.label-the-PR.outputs.new-labels }}
+          labels: approve
