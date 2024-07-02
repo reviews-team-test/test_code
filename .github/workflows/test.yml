@@ -8,6 +8,14 @@ jobs:
   use_api:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4 # Uploads repository content to the runner
+        with:
+          repository: "kubernetes/test-infra"
+          sparse-checkout: label_sync/labels.yaml
+          sparse-checkout-cone-mode: false
+      - run: |
+          mkdir .github
+          mv label_sync/labels.yaml .github/labeler.yml
       - id: label-the-PR
         uses: actions/labeler@v5
       - run: |
